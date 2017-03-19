@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorPrimary"
+    android:padding="15dp">
+    <TextView
+        android:gravity="right"
+        android:id="@+id/moment_time_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textColor="#fff"
+        android:textSize="14dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/moment_description_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textColor="#fff"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+</LinearLayout>

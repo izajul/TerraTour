@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        android:textColor="#000"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:id="@+id/nearby_location_name_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BRAC Bank Limited ATM"/>
+    <TextView
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:id="@+id/nearby_location_openclose_rating_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="rating:3, Open Now"/>
+    <TextView
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:id="@+id/nearby_location_address_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kalachandpur Main Road, Dhaka"/>
+</LinearLayout>

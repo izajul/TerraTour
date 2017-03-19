@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@color/colorPrimary"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="#00000000"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="8dp"
+            android:textSize="25sp"
+            android:textColor="#fff"
+            android:id="@+id/id1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Camera"/>
+
+        <ImageButton
+            android:layout_below="@id/id1"
+            android:id="@+id/cameraIB"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/camera"
+            android:background="#898989"/>
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="25sp"
+            android:textColor="#fff"
+            android:id="@+id/id2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gallery"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/galleryIB"
+            android:layout_alignStart="@+id/galleryIB"/>
+        <ImageButton
+            android:layout_below="@id/id2"
+            android:layout_marginLeft="40dp"
+            android:id="@+id/galleryIB"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/galleryicon"
+            android:layout_toRightOf="@+id/cameraIB"
+            android:background="#898989"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

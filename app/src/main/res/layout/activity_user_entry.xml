@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/activity_user_entry"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/startbackground"
+        tools:context="com.monordevelopers.tt.terratour.activity.UserEntryActivity" >
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="#da000000"
+            android:layout_width="match_parent"
+            android:padding="16dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginBottom="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terratour"
+                android:textColor="@color/colorPrimary"
+                android:textSize="35sp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:background="@drawable/inputborder"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/personwhite"/>
+                <EditText
+                    android:layout_weight="1"
+                    android:id="@+id/userNameET"
+                    android:hint="User Name"
+                    android:textColor="#f5f5f5"
+                    android:textColorHint="#818181"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:background="@drawable/inputborder"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="3dp"
+                    android:src="@drawable/lockwhite"/>
+                <EditText
+                    android:layout_weight="1"
+                    android:id="@+id/userPasswordET"
+                    android:hint="Password"
+                    android:textColor="#f5f5f5"
+                    android:textColorHint="#818181"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/forgotPasswordTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#f5f5f5"
+                    android:textStyle="italic"
+                    android:text="@string/forgot_password"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:textSize="18sp"
+                    android:textColor="#f5f5f5"
+                    android:background="@drawable/loginbuttonborder"
+                    android:textAllCaps="false"
+                    android:paddingTop="20dp"
+                    android:onClick="login"
+                    android:paddingBottom="20dp"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#f6f6f6"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OR"/>
+                <Button
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Create Account"
+                    android:textSize="18sp"
+                    android:textColor="#f5f5f5"
+                    android:background="@drawable/singupbuttonborder"
+                    android:textAllCaps="false"
+                    android:onClick="userSignup"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

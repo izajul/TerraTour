@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@color/colorPrimary"
+              android:orientation="vertical"
+              android:padding="5dp"
+              android:layout_margin="5dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/hourly_time_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:textSize="20sp"
+        android:textColor="#ffffff"/>
+    <ImageView
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:id="@+id/hourly_condition_imageView"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="#00ffffff"/>
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/hourly_Temp_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="20sp"
+        android:textColor="#ffffff"/>
+</LinearLayout>

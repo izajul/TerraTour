@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout
+              android:orientation="vertical"
+              android:padding="6dp"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/layout_add_event"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+            <EditText
+                android:id="@+id/travel_Destination_ET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Travel Destination"/>
+            <EditText
+                android:id="@+id/travel_Estimate_Budget_ET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Estimate Budget"/>
+            <EditText
+                android:id="@+id/travel_From_Date_ET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="From Date"/>
+            <EditText
+                android:id="@+id/travel_To_Date_ET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="To Date"/>
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:id="@+id/save_Event_BTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create Event"
+                android:textColor="#fff"
+                android:textSize="14dp"
+                android:onClick="createEvent"
+                android:background="@drawable/save_event_button_current_shape"/>
+
+    </LinearLayout>
+</LinearLayout>
+</layout>

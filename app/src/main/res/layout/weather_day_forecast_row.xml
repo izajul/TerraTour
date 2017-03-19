@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@color/colorPrimary"
+              android:layout_margin="5dp"
+              android:layout_width="match_parent"
+              android:padding="10dp"
+              android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/week_day_show_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Week Day "
+        android:textColor="#ffffff"
+        android:textSize="25sp"/>
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/show_week_day_condition_IM"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="#00ffffff"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+
+        android:gravity="center"
+        android:id="@+id/week_day_Low_Temp_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 "
+        android:textColor="#dadada"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/week_day_High_Temp_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 "
+        android:textColor="#ffffff"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/week_day_Low_Temp_TV"
+        android:layout_toStartOf="@+id/week_day_Low_Temp_TV"
+        android:layout_marginRight="17dp"
+        android:layout_marginEnd="17dp"/>
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_Edit_Event"
+        android:title="Edit Event"
+        app:showAsAction="collapseActionView"/>
+    <item
+        android:id="@+id/item_Delete_Event"
+        android:title="Delete Event"
+        app:showAsAction="collapseActionView"/>
+    <item
+        android:visible="true"
+        android:id="@+id/item_Add_Expense"
+        android:title="Add Expense"
+        android:icon="@mipmap/expenser"
+        app:showAsAction="always"/>
+    <item
+        android:visible="false"
+        android:id="@+id/item_Add_Moment"
+        android:title="Add Moment"
+        android:icon="@mipmap/camera_xxl"
+        app:showAsAction="always"/>
+</menu>

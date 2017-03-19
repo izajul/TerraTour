@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_marginTop="15dp"
+              android:background="@color/colorPrimary"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:padding="16dp"
+              android:layout_height="wrap_content">
+    <TextView
+        android:gravity="right"
+        android:id="@+id/expense_date_Show_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textSize="14sp"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:gravity="left"
+        android:id="@+id/expense_details_amount_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:textSize="18sp"/>
+
+</LinearLayout>

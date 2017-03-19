@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:padding="16dp"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/expense_details_ET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Expense Details"
+        android:inputType="text"/>
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/expense_amount_ET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Expense Amount"
+        android:inputType="number"
+        />
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/entry_expense_BTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entry Record"
+        android:textColor="#fff"
+        android:textSize="14dp"
+        android:onClick="RecordExpense"
+        android:background="@drawable/save_event_button_current_shape"/>
+</LinearLayout>
