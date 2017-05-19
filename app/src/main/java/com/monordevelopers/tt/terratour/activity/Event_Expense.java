@@ -48,6 +48,7 @@ import com.monordevelopers.tt.terratour.model.MomentsModel;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -201,6 +202,7 @@ public class Event_Expense extends AppCompatActivity {
         } );
     }
 
+    //TODO: set condition for diffrent between date.....====>>
     public void RecordExpense(View view) {
         String mydate = java.text.DateFormat.getDateTimeInstance().format( Calendar.getInstance().getTime());
         EditText aboutExpense = (EditText) mExpensDialog.findViewById( R.id.expense_details_ET );
@@ -451,9 +453,13 @@ public class Event_Expense extends AppCompatActivity {
         trave_from_date.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog( Event_Expense.this, date, myCalendar
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Event_Expense.this, date, myCalendar
                         .get( Calendar.YEAR ), myCalendar.get( Calendar.MONTH ),
-                        myCalendar.get( Calendar.DAY_OF_MONTH ) ).show();
+                        myCalendar.get( Calendar.DAY_OF_MONTH ) );
+                long l = System.currentTimeMillis()-1000;
+                datePickerDialog.getDatePicker().setMinDate(l);
+                datePickerDialog.show();
+
                 trave_from_date_checked = true;
                 trave_to_date_checked = false;
             }
@@ -461,11 +467,29 @@ public class Event_Expense extends AppCompatActivity {
         trave_to_date.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog( Event_Expense.this, date, myCalendar
-                        .get( Calendar.YEAR ), myCalendar.get( Calendar.MONTH ),
-                        myCalendar.get( Calendar.DAY_OF_MONTH ) ).show();
-                trave_from_date_checked = false;
-                trave_to_date_checked = true;
+
+                if(!trave_from_date.getText().toString().isEmpty()) {
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(Event_Expense.this, date, myCalendar
+                            .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                            myCalendar.get(Calendar.DAY_OF_MONTH));
+                    long startDate =0;
+                    try {
+                        String dateString = trave_from_date.getText().toString();
+                        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+                        Date date = sdf.parse(dateString);
+                        startDate = date.getTime();
+                    } catch (ParseException e) {e.printStackTrace();}
+
+                    datePickerDialog.getDatePicker().setMinDate(startDate);
+                    datePickerDialog.show();
+                    trave_from_date_checked = false;
+                    trave_to_date_checked = true;
+                }else{
+                    new android.app.AlertDialog.Builder(Event_Expense.this)
+                            .setMessage("Please Set From Date First !! ")
+                            .setCancelable(true)
+                            .show();
+                }
             }
         } );
     }

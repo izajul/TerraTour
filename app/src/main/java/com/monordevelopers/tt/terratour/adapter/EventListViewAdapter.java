@@ -1,11 +1,16 @@
 package com.monordevelopers.tt.terratour.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -39,13 +44,46 @@ public class EventListViewAdapter extends ArrayAdapter{
         TextView budget = (TextView) convertView.findViewById( R.id.totalBudget_TV );
         TextView day = (TextView) convertView.findViewById( R.id.showTotalDay_TV );
         TextView expend = (TextView) convertView.findViewById( R.id.totalExpned_TV );
+        TextView event_condition_TextView = (TextView) convertView.findViewById( R.id.event_condition_textView );
+        ImageView event_condition_ImageView = (ImageView) convertView.findViewById(R.id.event_condition_imageView);
         ProgressBar mProgress = (ProgressBar) convertView.findViewById( R.id.progressBar );
 
+
+        String date = findDiffrentBetweenDate(eventListModel.getFromDate(),eventListModel.getToDate());
         int expenseParsen = calculateParsent(Integer.valueOf(eventListModel.getTotalExpense()),
                 Integer.valueOf(eventListModel.getBudget()));
-        String date = findDiffrentBetweenDate(eventListModel.getFromDate(),eventListModel.getToDate());
+        if(expenseParsen>100 && expenseParsen<=200){
+            mProgress.setProgress(expenseParsen-100);
+            mProgress.setProgressDrawable(context.getResources().getDrawable(R.drawable.red_progress_drawable));
+        }else if (expenseParsen>200 && expenseParsen<=300){
+            mProgress.setProgress(expenseParsen-200);
+            mProgress.setProgressDrawable(context.getResources().getDrawable(R.drawable.blue_progress_drawable));
+        }else{
+            mProgress.setProgress(expenseParsen);
+            mProgress.setProgressDrawable(context.getResources().getDrawable(R.drawable.green_progress_drawable));
+        }
 
-        mProgress.setProgress(expenseParsen);
+        String cDatestring = new SimpleDateFormat("MM/dd/yy").format(new Date());
+        SimpleDateFormat myFormat = new SimpleDateFormat("MM/dd/yy");
+
+        //Date cDate,fDate,toDate = new Date();
+        //Date fDate = new Date();
+       try {
+           Date  cDate = myFormat.parse(cDatestring);
+           Date  fDate = myFormat.parse(eventListModel.getFromDate());
+           Date  toDate = myFormat.parse(eventListModel.getToDate());
+           if((cDate.getTime()<fDate.getTime())){
+               event_condition_TextView.setText("Not Active");
+               event_condition_ImageView.setImageResource(R.mipmap.not_active);
+           }else if((cDate.getTime()>=fDate.getTime()) && (cDate.getTime()<=toDate.getTime())){
+               event_condition_TextView.setText("");
+               event_condition_ImageView.setImageResource(R.mipmap.active);
+           }else{
+               event_condition_TextView.setText("");
+               event_condition_ImageView.setImageResource(R.mipmap.closed);
+           }
+       } catch (ParseException e) {e.printStackTrace();}
+
         destination.setText( eventListModel.getDestination() );
         budget.setText((char)0x09F3+ eventListModel.getBudget() );
         time.setText( eventListModel.getFromDate()+" to "+eventListModel.getToDate() );
@@ -55,13 +93,11 @@ public class EventListViewAdapter extends ArrayAdapter{
         return convertView;
     }
 
-
     private int calculateParsent(int expenseAmount, int budget) {
         int paresent =expenseAmount*100;
         paresent=paresent/budget;
         return paresent;
     }
-
 
     private String findDiffrentBetweenDate(String fromDate, String toDate) {
         SimpleDateFormat myFormat = new SimpleDateFormat("MM/dd/yyyy");

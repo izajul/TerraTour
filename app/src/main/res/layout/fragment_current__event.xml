@@ -2,15 +2,15 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:paddingLeft="15dp"
              android:paddingRight="15dp"
              tools:context="com.monordevelopers.tt.terratour.fragment.Current_Event_Fragment">
 
     <ListView
         android:id="@+id/currentEventList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:dividerHeight="10dp"
+        android:divider="#fafafa">
     </ListView>
 
 </FrameLayout>

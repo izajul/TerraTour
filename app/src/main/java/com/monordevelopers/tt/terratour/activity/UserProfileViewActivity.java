@@ -1,11 +1,14 @@
 package com.monordevelopers.tt.terratour.activity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.util.GregorianCalendar;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -35,8 +38,10 @@ import com.monordevelopers.tt.terratour.model.EventListModel;
 import com.monordevelopers.tt.terratour.model.UserModel;
 
 import java.io.File;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import static java.util.Locale.US;
 
@@ -127,9 +132,13 @@ public class UserProfileViewActivity extends AppCompatActivity implements Naviga
         trave_from_date.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog( UserProfileViewActivity.this, date, myCalendar
+                DatePickerDialog datePickerDialog = new DatePickerDialog( UserProfileViewActivity.this, date, myCalendar
                         .get( Calendar.YEAR ), myCalendar.get( Calendar.MONTH ),
-                        myCalendar.get( Calendar.DAY_OF_MONTH ) ).show();
+                        myCalendar.get( Calendar.DAY_OF_MONTH ) );
+                long l = System.currentTimeMillis()-1000;
+                datePickerDialog.getDatePicker().setMinDate(l);
+                datePickerDialog.show();
+
                 trave_from_date_checked = true;
                 trave_to_date_checked = false;
             }
@@ -137,11 +146,31 @@ public class UserProfileViewActivity extends AppCompatActivity implements Naviga
         trave_to_date.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog( UserProfileViewActivity.this, date, myCalendar
+                /*new DatePickerDialog( UserProfileViewActivity.this, date, myCalendar
                         .get( Calendar.YEAR ), myCalendar.get( Calendar.MONTH ),
-                        myCalendar.get( Calendar.DAY_OF_MONTH ) ).show();
-                trave_from_date_checked = false;
-                trave_to_date_checked = true;
+                        myCalendar.get( Calendar.DAY_OF_MONTH ) ).show();*/
+                if(!trave_from_date.getText().toString().isEmpty()) {
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(UserProfileViewActivity.this, date, myCalendar
+                            .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                            myCalendar.get(Calendar.DAY_OF_MONTH));
+                    long startDate =0;
+                    try {
+                        String dateString = trave_from_date.getText().toString();
+                        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+                        Date date = sdf.parse(dateString);
+                        startDate = date.getTime();
+                    } catch (ParseException e) {e.printStackTrace();}
+
+                    datePickerDialog.getDatePicker().setMinDate(startDate);
+                    datePickerDialog.show();
+                    trave_from_date_checked = false;
+                    trave_to_date_checked = true;
+                }else{
+                    new AlertDialog.Builder(UserProfileViewActivity.this)
+                            .setMessage("Please Set From Date First !! ")
+                            .setCancelable(true)
+                            .show();
+                }
             }
         } );
     }
@@ -273,10 +302,7 @@ public class UserProfileViewActivity extends AppCompatActivity implements Naviga
 
     public void createEvent(final View view) {
         int id = 0;
-        try {
-            id = usermodel.getId();
-        } catch (NullPointerException e) {
-        }
+        try { id = usermodel.getId(); } catch (NullPointerException e) {}
 
         String desti = travel_desti.getText().toString();
         String budget = trave_ludget.getText().toString();

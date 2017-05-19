@@ -8,7 +8,9 @@
         android:layout_marginTop="10dp"
         android:id="@+id/expenseListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:dividerHeight="10dp"
+        android:divider="#fafafa">
 
     </ListView>
 

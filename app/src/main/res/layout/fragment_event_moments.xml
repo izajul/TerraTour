@@ -5,9 +5,13 @@
               android:orientation="vertical"
              tools:context="com.monordevelopers.tt.terratour.fragment.EventMomentsFragment">
 
-    <ListView android:id="@+id/moment_list_View"
+    <ListView
+        android:id="@+id/moment_list_View"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:dividerHeight="10dp"
+        android:divider="#fafafa">
     </ListView>
 
 </LinearLayout>

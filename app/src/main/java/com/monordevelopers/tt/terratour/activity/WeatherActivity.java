@@ -207,8 +207,9 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<GetLocationByLatLonPojo> call, Response<GetLocationByLatLonPojo> response) {
                 getLocationByLatLonPojo = response.body();
-                Result result = getLocationByLatLonPojo.getResults().get( 0 );
+
                 try{
+                    Result result = getLocationByLatLonPojo.getResults().get( 0 );
                     String dummy = result.getAddressComponents().get( 2 ).getLongName();
                     String finalString = dummy.replaceAll( "District","" ).trim();
                     actionbar.setTitle(finalString+","+result.getAddressComponents()

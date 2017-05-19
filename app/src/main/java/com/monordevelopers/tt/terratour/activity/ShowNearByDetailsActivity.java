@@ -31,7 +31,7 @@ public class ShowNearByDetailsActivity extends AppCompatActivity {
 
     NearbyApi nearbyApi;
     MyPojoNearBy myPojoNearBy;
-    String keyword= "",mRadius = "1000";
+    String keyword= "",mRadius = "5000";
     ArrayList<Result> mNearbyResults;
 
     @Override
@@ -66,8 +66,9 @@ public class ShowNearByDetailsActivity extends AppCompatActivity {
                 .build();
         nearbyApi = retrofit.create( NearbyApi.class );
     }
+
     public void getNearByData(){
-        String s ="json?location="+mLatLang+"&radius = "+mRadius+keyword+"&key=AIzaSyDFcUV2axWvUZgFj6HthZgob0J0kHRepBQ";
+        String s ="json?location="+mLatLang+"&radius=5000"+keyword+"&key=AIzaSyDFcUV2axWvUZgFj6HthZgob0J0kHRepBQ";
         final Call<MyPojoNearBy> myPojoNearByCall = nearbyApi.getMyNearBy(s);
 
         myPojoNearByCall.enqueue( new Callback<MyPojoNearBy>() {
